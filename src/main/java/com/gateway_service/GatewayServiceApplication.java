@@ -24,10 +24,13 @@ public class GatewayServiceApplication {
 		return builder.routes()
 				.route("related-service", r -> r.path("/related/**")
 						.filters(f -> f.filter(filter))
-						.uri("lb://RELATED-SERVICE"))
+						.uri("lb://RECOMMENDATION-SERVICE"))
 				.route("recommendation-service", r -> r.path("/recommendation/**")
 						.filters(f -> f.filter(filter))
 						.uri("lb://RECOMMENDATION-SERVICE"))
+				.route("get-data-service", r -> r.path("/get-data/**")
+						.filters(f -> f.filter(filter))
+						.uri("lb://GET-DATA-SERVICE"))
 				.build();
 	}
 }
